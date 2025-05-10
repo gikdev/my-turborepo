@@ -2,7 +2,7 @@ import avatarPlaceholder from "@/assets/avatar-placeholder.png"
 import { useSignalRContext } from "@/contexts/signalr.context"
 import { ENUMS } from "@/enums"
 import { useGetMasterInfo } from "@/services"
-import type { MasterStatus } from "@repo/shared/gen-types"
+import type { MasterStatus } from "vgold-shared/gen-types"
 import Cookies from "js-cookie"
 import { createContext, useContext, useEffect, useState } from "react"
 

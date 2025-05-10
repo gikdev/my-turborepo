@@ -1,4 +1,4 @@
-import { apiClient } from "@repo/shared/services/api-client"
+import { apiClient } from "vgold-shared/services/api-client"
 
 type ResultKeyValues = string | number | null | undefined
 

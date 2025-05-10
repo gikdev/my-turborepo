@@ -1,1 +1,1 @@
-export * from "@repo/shared/hooks"
+export * from "vgold-shared/hooks"

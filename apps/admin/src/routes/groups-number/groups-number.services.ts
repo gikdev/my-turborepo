@@ -1,5 +1,5 @@
-import type { CustomerGroupIntDto } from "@repo/shared/gen-types"
-import { apiClient } from "@repo/shared/services/api-client"
+import type { CustomerGroupIntDto } from "vgold-shared/gen-types"
+import { apiClient } from "vgold-shared/services/api-client"
 import { toast } from "react-toastify"
 
 export function deleteGroup(id: number, cb: () => void) {

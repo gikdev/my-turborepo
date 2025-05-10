@@ -1,5 +1,5 @@
 import { Pen } from "@phosphor-icons/react"
-import { apiClient } from "@repo/shared/services/api-client"
+import { apiClient } from "vgold-shared/services/api-client"
 import { toast } from "react-toastify"
 
 export interface MasterInfo {

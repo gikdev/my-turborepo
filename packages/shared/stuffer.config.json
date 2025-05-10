@@ -4,7 +4,7 @@
     "minor": 0,
     "patch": 0,
     "stuff": 0,
-    "mode": "turbo"
+    "mode": "turborepo"
   },
   "urls": {
     "benyamin": "http://192.168.10.57:4567",

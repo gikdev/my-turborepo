@@ -3,7 +3,7 @@ import { apiEndpoints, apiHelper, formatters, logOut, uploadFile } from "@/helpe
 import { TitledCard } from "@/layouts"
 import { toISOStr } from "@/utils"
 import { PenNib } from "@phosphor-icons/react"
-import { ERROR_MSGS, apiClient } from "@repo/shared/services/api-client"
+import { ERROR_MSGS, apiClient } from "vgold-shared/services/api-client"
 import { captureException } from "@sentry/react"
 import { useCallback, useRef, useState } from "react"
 import { toast } from "react-toastify"

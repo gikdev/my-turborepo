@@ -1,2 +1,2 @@
 export * from "./nav.component"
-export * from "@repo/shared/components"
+export * from "vgold-shared/components"

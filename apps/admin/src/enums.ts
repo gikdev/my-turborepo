@@ -1,1 +1,1 @@
-export * from "@repo/shared/enums"
+export * from "vgold-shared/enums"

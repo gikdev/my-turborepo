@@ -2,7 +2,7 @@ import { Filter, TableFa } from "@/components"
 import { cellRenderers, formatters } from "@/helpers"
 import { useDateFilter } from "@/hooks"
 import { toISOStr } from "@/utils"
-import { apiClient } from "@repo/shared/services/api-client"
+import { apiClient } from "vgold-shared/services/api-client"
 import type { ComponentProps } from "react"
 
 const COLUMN_DEFINITIONS: ComponentProps<typeof TableFa>["columnDefs"] = [

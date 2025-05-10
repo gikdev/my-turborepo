@@ -1,8 +1,8 @@
 import { SelectOneTable } from "@/components"
 import { cellRenderers } from "@/helpers"
 import { useListen } from "@/hooks"
-import type { PortfolioDto } from "@repo/shared/gen-types"
-import { apiClient } from "@repo/shared/services/api-client"
+import type { PortfolioDto } from "vgold-shared/gen-types"
+import { apiClient } from "vgold-shared/services/api-client"
 import type { ComponentProps } from "react"
 
 const columnDefs: ComponentProps<typeof SelectOneTable>["columnDefs"] = [

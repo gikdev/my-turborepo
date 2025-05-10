@@ -211,4 +211,4 @@ export function useWithSound(audioSource: string) {
 }
 
 // @ts-ignore
-export * from "@repo/shared/hooks"
+export * from "vgold-shared/hooks"

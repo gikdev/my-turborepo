@@ -1,2 +1,2 @@
-export * from "@repo/shared/contexts"
+export * from "vgold-shared/contexts"
 export * from "./admin.context"

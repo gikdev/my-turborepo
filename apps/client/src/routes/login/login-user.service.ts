@@ -1,4 +1,4 @@
-import { apiClient } from "@repo/shared/services/api-client"
+import { apiClient } from "vgold-shared/services/api-client"
 import Cookies from "js-cookie"
 import { sha512 } from "js-sha512"
 

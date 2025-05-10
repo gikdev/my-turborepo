@@ -1,1 +1,1 @@
-export * from "@repo/shared/constants"
+export * from "vgold-shared/constants"

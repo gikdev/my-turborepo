@@ -3,8 +3,8 @@ import { cellRenderers } from "@/helpers"
 import { useInEveryPage } from "@/hooks"
 import { HeadingLine } from "@/layouts"
 import { ArrowCounterClockwise } from "@phosphor-icons/react"
-import type { MasterPortfolioDto } from "@repo/shared/gen-types"
-import { apiClient } from "@repo/shared/services/api-client"
+import type { MasterPortfolioDto } from "vgold-shared/gen-types"
+import { apiClient } from "vgold-shared/services/api-client"
 import type { ComponentProps } from "react"
 
 const COLUMN_DEFINITIONS: ComponentProps<typeof TableFa>["columnDefs"] = [

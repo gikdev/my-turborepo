@@ -2,7 +2,7 @@ import { Btn, Heading, TableFa } from "@/components"
 import { formatters } from "@/helpers"
 import { TitledCard } from "@/layouts"
 import { ArrowCounterClockwise, Eye, Pen, Plus, Trash } from "@phosphor-icons/react"
-import { apiClient } from "@repo/shared/services/api-client"
+import { apiClient } from "vgold-shared/services/api-client"
 import { Link } from "wouter"
 import * as customerServices from "./customer.services"
 

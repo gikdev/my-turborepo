@@ -3,8 +3,8 @@ import { formatters } from "@/helpers"
 import { useDateFilter } from "@/hooks"
 import { TitledCard } from "@/layouts"
 import { toISOStr } from "@/utils"
-import type { TransferDto } from "@repo/shared/gen-types"
-import { apiClient } from "@repo/shared/services/api-client"
+import type { TransferDto } from "vgold-shared/gen-types"
+import { apiClient } from "vgold-shared/services/api-client"
 import { type ComponentProps, useEffect } from "react"
 
 const COLUMN_DEFINITIONS: ComponentProps<typeof TableFa>["columnDefs"] = [

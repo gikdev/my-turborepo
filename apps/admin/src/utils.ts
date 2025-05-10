@@ -1,1 +1,1 @@
-export * from "@repo/shared/utils"
+export * from "vgold-shared/utils"

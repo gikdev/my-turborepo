@@ -5,7 +5,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/emex-shared/src/**/*.{js,jsx}",
+    "../../packages/shared/src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     fontFamily: {

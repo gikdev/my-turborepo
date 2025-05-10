@@ -1,13 +1,21 @@
 {
-  "name": "@repo/shared",
-  "version": "0.0.0",
-  "private": true,
-  "main": "src/index.ts",
+  "name": "vgold-shared",
+  "type": "module",
   "exports": {
-    "./*": "./src/*.tsx"
+    "./client": "./src/client/index.ts",
+    "./components": "./src/components/index.ts",
+    "./contexts": "./src/contexts/index.ts",
+    "./helpers": "./src/helpers/index.ts",
+    "./hooks": "./src/hooks/index.ts",
+    "./layouts": "./src/layouts/index.ts",
+    "./services/api-client": "./src/services/api-client.ts",
+    "./utils": "./src/utils/index.ts",
+    "./constants": "./src/constants.ts",
+    "./enums": "./src/enums.ts"
   },
   "scripts": {
     "openapi-ts": "openapi-ts",
+    "stuffer": "node ./stuffer.js",
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
@@ -35,7 +43,7 @@
     "zaman": "^2.1.1"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
+    "@repo/typescript-config": "*",
     "@hey-api/openapi-ts": "^0.66.7",
     "@types/js-cookie": "^3.0.6",
     "@types/react": "^18.3.3",

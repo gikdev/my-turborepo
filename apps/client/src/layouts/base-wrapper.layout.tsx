@@ -11,7 +11,7 @@ import {
   Storefront,
   UserCircle,
 } from "@phosphor-icons/react"
-import { apiClient } from "@repo/shared/services/api-client"
+import { apiClient } from "vgold-shared/services/api-client"
 import Cookies from "js-cookie"
 import { type PropsWithChildren, useEffect } from "react"
 import { toast } from "react-toastify"
