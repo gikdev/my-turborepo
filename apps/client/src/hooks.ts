@@ -1,1 +1,1 @@
-export * from "emex-shared/hooks"
+export * from "@repo/shared/hooks"

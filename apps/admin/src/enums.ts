@@ -1,1 +1,1 @@
-export * from "emex-shared/enums"
+export * from "@repo/shared/enums"

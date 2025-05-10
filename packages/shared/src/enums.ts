@@ -1,4 +1,4 @@
-const ENUMS = {
+export const ENUMS = {
   AUTO_MODE: {
     NORMAL: 0,
     AUTO_ACCEPT: 1,
@@ -31,7 +31,7 @@ const ENUMS = {
   },
 }
 
-const PERSIAN_ENUMS = {
+export const PERSIAN_ENUMS = {
   ADMIN_STATUS: { 1: "آفلاین", 2: "آنلاین", 3: "غیرفعال" },
   AUTO_MODE: ["عادی", "تایید خودکار", "رد خودکار"],
   ORDER_SIDE: { 1: "خرید", 2: "فروش" },
@@ -49,6 +49,5 @@ const PERSIAN_ENUMS = {
 
 const UNKNOWN = "نامعلوم"
 
-const enumToText = (enumName, code) => PERSIAN_ENUMS[enumName][code] || UNKNOWN
-
-export { ENUMS, PERSIAN_ENUMS, enumToText }
+export const enumToText = (enumName: keyof typeof PERSIAN_ENUMS, code: string | number) =>
+  PERSIAN_ENUMS[enumName][code] || UNKNOWN

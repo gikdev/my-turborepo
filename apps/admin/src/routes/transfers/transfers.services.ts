@@ -1,4 +1,4 @@
-import { apiClient } from "emex-shared/services/api-client"
+import { apiClient } from "@repo/shared/services/api-client"
 import { toast } from "react-toastify"
 
 export function accjectTransfer(id: number, isAccepted: boolean, cb: () => void) {

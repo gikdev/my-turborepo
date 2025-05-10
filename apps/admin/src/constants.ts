@@ -1,1 +1,1 @@
-export * from "emex-shared/constants"
+export * from "@repo/shared/constants"

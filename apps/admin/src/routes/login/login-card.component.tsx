@@ -1,6 +1,6 @@
 import { Btn, Heading, Hr, LabeledInput, PError } from "@/components"
 import { useLoading } from "@/hooks"
-import type { LoginModel } from "emex-shared/gen-types"
+import type { LoginModel } from "@repo/shared/gen-types"
 import { useForm } from "react-hook-form"
 import tw from "tailwind-styled-components"
 import { loginAdmin } from "./login-admin.service"

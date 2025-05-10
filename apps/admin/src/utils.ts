@@ -1,1 +1,1 @@
-export * from "emex-shared/utils"
+export * from "@repo/shared/utils"

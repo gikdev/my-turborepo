@@ -5,8 +5,8 @@ import type {
   CustomerGroupIntDto,
   Gidto,
   UpdateCustomerForMasterDto,
-} from "emex-shared/gen-types"
-import { apiClient } from "emex-shared/services/api-client"
+} from "@repo/shared/gen-types"
+import { apiClient } from "@repo/shared/services/api-client"
 import { toast } from "react-toastify"
 
 export function $delete(data: Gidto, cb: () => void) {

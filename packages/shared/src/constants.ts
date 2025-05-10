@@ -1,10 +1,10 @@
-const MESSAGES = {
+export const MESSAGES = {
   CANCEL: "منصرف شدم",
   CHANGE_REMAINING_AMOUNT_DESCRIPTION: "چقدر از این محصول برامون مونده؟",
   CHANGE_REMAINING_AMOUNT_TITLE: "تغییر مقدار موجودی",
   CHANGE_USERNAME_DESCRIPTION: "خب، اسمت چی باشه؟",
   CHANGE_USERNAME_TITLE: "میخوای اسمتو عوض کنی؟",
-  CONFIRM_ACCEPT_OR_REJECT: isAcceptence => `واقعا میخوای ${isAcceptence ? "تاییدش" : "ردش"} کنی؟`,
+  CONFIRM_ACCEPT_OR_REJECT: (isAcceptence: boolean) => `واقعا میخوای ${isAcceptence ? "تاییدش" : "ردش"} کنی؟`,
   CONFIRM_DELETE_DESCRIPTION: "مطمئنی میخوای اینو پاک کنی؟",
   CONFIRM_DELETE_TITLE: "مواظب باش!",
   CONTINUE: "ادامه بدیم",
@@ -13,7 +13,7 @@ const MESSAGES = {
   EMPTY_DESCRIPTION: "خوشبختانه یا متاسفانه چیزی اینجا دیده نمیشه...",
   EMPTY_TITLE: "چیزی رویت نمیشه ناخدا...",
   ERROR_404_DESCRIPTION: "چیزی که دنبالشی پیدا نشد!",
-  ERROR_404_PAGE_DESCRIPTION: s =>
+  ERROR_404_PAGE_DESCRIPTION: (s: number) =>
     `صفحه‌ای که دنبالشی رو نداریم. بازگشت به صفحه اصلی در ${s} ثانیه.`,
   ERROR_404_PAGE_TITLE: "صفحه پیدا نشد (۴۰۴)",
   ERROR_404_TITLE: "آخ...",
@@ -38,12 +38,7 @@ const MESSAGES = {
   USERNAME_OR_PASSWORD_IS_INCORRECT: "نام کاربری یا رمز عبور اشتباه است",
 }
 
-const VERSIONS = {
-  CLIENT: "0.0.0-beta",
-  ADMIN: "0.0.0-beta",
-}
-
-const AG_GRID_LOCALE_IR = {
+export const AG_GRID_LOCALE_IR = {
   // Set Filter
   selectAll: "(انتخاب همه)",
   selectAllSearchResults: "(انتخاب همه نتایج جستجو)",
@@ -629,5 +624,3 @@ const AG_GRID_LOCALE_IR = {
   timeFormatHHMMSS: "ساعت:دقیقه:ثانیه",
   timeFormatHHMMSSAmPm: "ساعت:دقیقه:ثانیه قبل/بعد از ظهر",
 }
-
-export { MESSAGES, VERSIONS, AG_GRID_LOCALE_IR }

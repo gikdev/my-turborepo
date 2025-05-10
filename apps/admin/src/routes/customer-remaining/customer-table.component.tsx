@@ -1,7 +1,7 @@
 import { SelectOneTable } from "@/components"
 import { formatters } from "@/helpers"
-import type { CustomerDto } from "emex-shared/gen-types"
-import { apiClient } from "emex-shared/services/api-client"
+import type { CustomerDto } from "@repo/shared/gen-types"
+import { apiClient } from "@repo/shared/services/api-client"
 import type { ComponentProps } from "react"
 
 type AnObjectThatHasIsActiveProp = { isActive: boolean }

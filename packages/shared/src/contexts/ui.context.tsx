@@ -1,15 +1,24 @@
-import { createContext, useCallback, useContext, useState } from "react"
+import { createContext, type PropsWithChildren, useCallback, useContext, useState } from "react"
 
-const UIContext = createContext({
+interface UIContext {
+  sidebar: {
+    isOpen: boolean
+    open(): void
+    close(): void
+  }
+}
+
+const UIContext = createContext<UIContext>({
   sidebar: {
     isOpen: false,
     open: () => {},
     close: () => {},
   },
 })
-const useUIContext = () => useContext(UIContext)
 
-function UIProvider({ children }) {
+export const useUIContext = () => useContext(UIContext)
+
+export function UIProvider({ children }: PropsWithChildren) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const openSidebar = useCallback(() => setIsSidebarOpen(true), [])
   const closeSidebar = useCallback(() => setIsSidebarOpen(false), [])
@@ -22,5 +31,3 @@ function UIProvider({ children }) {
 
   return <UIContext.Provider value={value}>{children}</UIContext.Provider>
 }
-
-export { UIProvider, useUIContext }

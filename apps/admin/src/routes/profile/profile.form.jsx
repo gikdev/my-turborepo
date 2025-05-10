@@ -1,7 +1,7 @@
 import { Btn, LabeledInput, LabeledUploadInput } from "@/components"
-import { logOut, transparentLog as tl, uploadFile } from "@/helpers"
+import { logOut, uploadFile } from "@/helpers"
 import { FloppyDiskBack, UserCircle } from "@phosphor-icons/react"
-import { apiClient } from "emex-shared/services/api-client"
+import { apiClient } from "@repo/shared/services/api-client"
 import Cookies from "js-cookie"
 import { toast } from "react-toastify"
 import tw from "tailwind-styled-components"
@@ -47,12 +47,10 @@ export function ProfileForm() {
       return
     }
 
-    const dataToSend = objToKeyVal(
-      tl({
-        ...(hasNameChanged && { name: nameField.value }),
-        ...(hasImageChanged && { logoUrl: imageUrlHolder }),
-      }),
-    )
+    const dataToSend = objToKeyVal({
+      ...(hasNameChanged && { name: nameField.value }),
+      ...(hasImageChanged && { logoUrl: imageUrlHolder }),
+    })
 
     apiClient.fetch({
       endpoint: "/Master/UpdateF",

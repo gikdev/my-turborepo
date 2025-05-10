@@ -1,4 +1,4 @@
-import { apiClient } from "emex-shared/services/api-client"
+import { apiClient } from "@repo/shared/services/api-client"
 
 type ResultKeyValues = string | number | null | undefined
 

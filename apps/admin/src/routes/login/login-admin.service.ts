@@ -1,5 +1,5 @@
-import type { LoginModel, MasterLoginModel } from "emex-shared/gen-types"
-import { apiClient } from "emex-shared/services/api-client"
+import type { LoginModel, MasterLoginModel } from "@repo/shared/gen-types"
+import { apiClient } from "@repo/shared/services/api-client"
 import Cookies from "js-cookie"
 import { sha512 } from "js-sha512"
 import { toast } from "react-toastify"

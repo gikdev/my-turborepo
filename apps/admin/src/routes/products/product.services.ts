@@ -1,5 +1,5 @@
-import type { StockDto } from "emex-shared/gen-types"
-import { apiClient } from "emex-shared/services/api-client"
+import type { StockDto } from "@repo/shared/gen-types"
+import { apiClient } from "@repo/shared/services/api-client"
 import { toast } from "react-toastify"
 
 export function deleteProduct(id: number, cb: () => void) {

@@ -211,4 +211,4 @@ export function useWithSound(audioSource: string) {
 }
 
 // @ts-ignore
-export * from "emex-shared/hooks"
+export * from "@repo/shared/hooks"

@@ -2,7 +2,7 @@ import { Btn, LabeledInput, Switch } from "@/components"
 import { MESSAGES } from "@/constants"
 import { TitledCard } from "@/layouts"
 import { Pen } from "@phosphor-icons/react"
-import { apiClient } from "emex-shared/services/api-client"
+import { apiClient } from "@repo/shared/services/api-client"
 import { type FormEvent, useEffect, useRef, useState } from "react"
 import toast from "react-hot-toast"
 

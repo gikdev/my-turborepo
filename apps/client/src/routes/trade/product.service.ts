@@ -1,6 +1,6 @@
 import { MESSAGES } from "@/constants"
-import type { OrderFc, ReqOrderDto } from "emex-shared/gen-types"
-import { apiClient } from "emex-shared/services/api-client"
+import type { OrderFc, ReqOrderDto } from "@repo/shared/gen-types"
+import { apiClient } from "@repo/shared/services/api-client"
 import { toast } from "react-toastify"
 
 export function requestOrder(data: ReqOrderDto, onSuccessCallback: (data: OrderFc) => void) {

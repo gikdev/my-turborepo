@@ -1,5 +1,8 @@
-import type { StockPriceSourceAddRequest, StockPriceSourceEditRequest } from "emex-shared/gen-types"
-import { apiClient } from "emex-shared/services/api-client"
+import type {
+  StockPriceSourceAddRequest,
+  StockPriceSourceEditRequest,
+} from "@repo/shared/gen-types"
+import { apiClient } from "@repo/shared/services/api-client"
 import { toast } from "react-toastify"
 
 export function removePriceSource(id: number, cb: () => void) {

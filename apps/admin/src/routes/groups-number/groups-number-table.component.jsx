@@ -2,7 +2,7 @@ import { Btn, Heading, TableFa } from "@/components"
 import { formatters } from "@/helpers"
 import { TitledCard } from "@/layouts"
 import { ArrowCounterClockwise, Pen, Plus, Trash } from "@phosphor-icons/react"
-import { apiClient } from "emex-shared/services/api-client"
+import { apiClient } from "@repo/shared/services/api-client"
 import { Link } from "wouter"
 import { deleteGroup } from "./groups-number.services"
 

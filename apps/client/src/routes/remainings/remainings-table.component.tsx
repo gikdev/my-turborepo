@@ -1,6 +1,6 @@
 import { TableFa } from "@/components"
 import { formatters } from "@/helpers"
-import { apiClient } from "emex-shared/services/api-client"
+import { apiClient } from "@repo/shared/services/api-client"
 import type { ComponentProps } from "react"
 
 const COLUMN_DEFINITIONS: ComponentProps<typeof TableFa>["columnDefs"] = [
