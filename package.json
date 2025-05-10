@@ -2,17 +2,22 @@
   "name": "my-turborepo",
   "private": true,
   "scripts": {
+    "lint": "biome lint --write ./apps/*/src/ ./packages/*/src/",
+    "format": "biome format --write ./apps/*/src/ ./packages/*/src/",
+    "format:fix-unsafe": "biome format --fix --unsafe ./apps/*/src/ ./packages/*/src/",
+    "check": "biome check --write ./apps/*/src/ ./packages/*/src/",
     "build": "turbo run build",
     "dev": "turbo run dev"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "turbo": "^2.5.3",
     "typescript": "5.8.2"
   },
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "bun@1.2.10",
+  "packageManager": "bun@1.2.12",
   "workspaces": [
     "apps/*",
     "packages/*"

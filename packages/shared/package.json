@@ -6,17 +6,42 @@
     "./*": "./src/*.tsx"
   },
   "scripts": {
+    "openapi-ts": "openapi-ts",
     "check-types": "tsc --noEmit"
   },
-  "devDependencies": {
-    "@repo/typescript-config": "*",
-    "@types/node": "^22.15.3",
-    "@types/react": "19.1.0",
-    "@types/react-dom": "19.1.1",
-    "typescript": "5.8.2"
-  },
   "dependencies": {
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "@hey-api/client-fetch": "^0.10.0",
+    "@master/styled.react": "^2.0.4",
+    "@microsoft/signalr": "^8.0.7",
+    "@phosphor-icons/react": "^2.1.7",
+    "@radix-ui/react-separator": "^1.1.0",
+    "@radix-ui/react-switch": "^1.1.0",
+    "@sentry/react": "^9.15.0",
+    "ag-grid-react": "^32.1.0",
+    "clsx": "^2.1.1",
+    "js-cookie": "^3.0.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-error-boundary": "^4.0.13",
+    "react-hot-toast": "^2.4.1",
+    "react-toastify": "^11.0.5",
+    "redaxios": "^0.5.1",
+    "sweetalert2": "^11.12.3",
+    "sweetalert2-react-content": "^5.0.7",
+    "swr": "^2.2.5",
+    "tailwind-styled-components": "^2.2.0",
+    "wouter": "^3.3.1",
+    "zaman": "^2.1.1"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@hey-api/openapi-ts": "^0.66.7",
+    "@types/js-cookie": "^3.0.6",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "@vitest/ui": "^2.0.5",
+    "typescript": "^5.8.3",
+    "vite": "^5.3.5"
   }
 }

@@ -22,3 +22,17 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# ???
+bun.lockb
+bun.lock
+package-lock.json
+pnpm-lock.yaml
+temp/
+*.zip
+android/
+ios/
+
+resources/android/**/*
+# Sentry Config File
+.env.sentry-build-plugin

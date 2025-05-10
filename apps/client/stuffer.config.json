@@ -1,8 +1,8 @@
 {
   "version": {
     "major": 0,
-    "minor": 0,
-    "patch": 0,
+    "minor": 14,
+    "patch": 9,
     "stuff": 0,
     "mode": "refactor-api"
   },

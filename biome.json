@@ -1,37 +1,41 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.8.2/schema.json",
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
   "organizeImports": {
     "enabled": true
   },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
-    }
+      "recommended": true,
+      "complexity": {
+        "noStaticOnlyClass": "off"
+      }
+    },
+    "ignore": [
+      "tsconfig.json",
+      "tsconfig.app.json",
+      "tsconfig.node.json",
+      "android/",
+      "node_modules/",
+      "dist/"
+    ]
   },
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
-    "ignore": [],
     "attributePosition": "auto",
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 100,
+    "ignore": [
+      "tsconfig.json",
+      "tsconfig.app.json",
+      "tsconfig.node.json",
+      "android/",
+      "node_modules/",
+      "dist/"
+    ],
     "lineEnding": "lf"
-  },
-  "css": {
-    "formatter": {
-      "enabled": true,
-      "indentStyle": "space",
-      "indentWidth": 2,
-      "quoteStyle": "double"
-    },
-    "linter": {
-      "enabled": true
-    },
-    "parser": {
-      "cssModules": true
-    }
   },
   "javascript": {
     "formatter": {
@@ -42,6 +46,9 @@
       "quoteProperties": "asNeeded",
       "semicolons": "asNeeded",
       "trailingCommas": "all"
+    },
+    "linter": {
+      "enabled": true
     }
   },
   "json": {
