@@ -1,2 +1,2 @@
-export * from "@repo/shared/contexts/index"
+export * from "@repo/shared/contexts"
 export * from "./admin.context"

@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "module": "ESNexi",
+    "module": "ESNext",
     "lib": ["ESNext", "DOM"],
     "sourceMap": true,
     "resolveJsonModule": true,
