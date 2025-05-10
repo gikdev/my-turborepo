@@ -4,7 +4,8 @@ export const MESSAGES = {
   CHANGE_REMAINING_AMOUNT_TITLE: "تغییر مقدار موجودی",
   CHANGE_USERNAME_DESCRIPTION: "خب، اسمت چی باشه؟",
   CHANGE_USERNAME_TITLE: "میخوای اسمتو عوض کنی؟",
-  CONFIRM_ACCEPT_OR_REJECT: (isAcceptence: boolean) => `واقعا میخوای ${isAcceptence ? "تاییدش" : "ردش"} کنی؟`,
+  CONFIRM_ACCEPT_OR_REJECT: (isAcceptence: boolean) =>
+    `واقعا میخوای ${isAcceptence ? "تاییدش" : "ردش"} کنی؟`,
   CONFIRM_DELETE_DESCRIPTION: "مطمئنی میخوای اینو پاک کنی؟",
   CONFIRM_DELETE_TITLE: "مواظب باش!",
   CONTINUE: "ادامه بدیم",

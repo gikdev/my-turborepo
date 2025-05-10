@@ -3,4 +3,3 @@ export function useSmartTheme() {
   const htmlTag = document.querySelector("html")
   htmlTag.setAttribute("data-theme", isUserSystemDark ? "dracula" : "cupcake")
 }
-
