@@ -1,0 +1,11 @@
+{
+  "appId": "ir.vahedigold.vgold_admin",
+  "appName": "واحدی ادمین",
+  "webDir": "dist",
+  "server": {
+    "cleartext": true
+  },
+  "android": {
+    "allowMixedContent": true
+  }
+}

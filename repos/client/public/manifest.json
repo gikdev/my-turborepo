@@ -1,0 +1,25 @@
+{
+  "id": "ir.vahedigold.vgold_client",
+  "name": "واحدی گلد",
+  "short_name": "واحدی گلد",
+  "start_url": "/",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#111113",
+  "theme_color": "#ffc53d",
+  "dir": "rtl",
+  "lang": "fa-IR",
+  "icons": [
+    {
+      "src": "/images/vgold-icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/vgold-icon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

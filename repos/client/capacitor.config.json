@@ -1,0 +1,11 @@
+{
+  "appId": "ir.vahedigold.vgold_client",
+  "appName": "واحدی گلد",
+  "webDir": "dist",
+  "server": {
+    "cleartext": true
+  },
+  "android": {
+    "allowMixedContent": true
+  }
+}

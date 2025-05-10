@@ -1,0 +1,25 @@
+{
+  "id": "ir.vahedigold.vgold-admin",
+  "name": "واحدی ادمین",
+  "short_name": "واحدی ادمین",
+  "start_url": "/",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#14161a",
+  "theme_color": "#00d1b2",
+  "dir": "rtl",
+  "lang": "fa-IR",
+  "icons": [
+    {
+      "src": "/images/vgold-icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/vgold-icon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
