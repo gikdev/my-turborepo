@@ -1,8 +1,8 @@
 import { Btn, Heading, Hr, LabeledInput, PError } from "@/components"
 import { useLoading } from "@/hooks"
-import type { LoginModel } from "vgold-shared/gen-types"
 import { useForm } from "react-hook-form"
 import tw from "tailwind-styled-components"
+import type { LoginModel } from "vgold-shared/gen-types"
 import { loginAdmin } from "./login-admin.service"
 
 const StyledContainer = tw.form`

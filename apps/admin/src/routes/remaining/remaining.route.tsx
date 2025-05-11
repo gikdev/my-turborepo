@@ -3,9 +3,9 @@ import { cellRenderers } from "@/helpers"
 import { useInEveryPage } from "@/hooks"
 import { HeadingLine } from "@/layouts"
 import { ArrowCounterClockwise } from "@phosphor-icons/react"
+import type { ComponentProps } from "react"
 import type { MasterPortfolioDto } from "vgold-shared/gen-types"
 import { apiClient } from "vgold-shared/services/api-client"
-import type { ComponentProps } from "react"
 
 const COLUMN_DEFINITIONS: ComponentProps<typeof TableFa>["columnDefs"] = [
   { field: "stockName" as never, headerName: "نام محصول" },

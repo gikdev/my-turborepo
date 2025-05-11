@@ -1,8 +1,8 @@
 import { SelectOneTable } from "@/components"
 import { formatters } from "@/helpers"
+import type { ComponentProps } from "react"
 import type { CustomerDto } from "vgold-shared/gen-types"
 import { apiClient } from "vgold-shared/services/api-client"
-import type { ComponentProps } from "react"
 
 type AnObjectThatHasIsActiveProp = { isActive: boolean }
 type SelectOneTableProps = ComponentProps<typeof SelectOneTable>

@@ -1,6 +1,6 @@
+import { toast } from "react-toastify"
 import type { StockDto } from "vgold-shared/gen-types"
 import { apiClient } from "vgold-shared/services/api-client"
-import { toast } from "react-toastify"
 
 export function deleteProduct(id: number, cb: () => void) {
   apiClient.fetch({

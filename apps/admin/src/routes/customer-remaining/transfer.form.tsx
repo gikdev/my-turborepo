@@ -2,9 +2,9 @@ import { Btn, LabeledInput, Switch } from "@/components"
 import { MESSAGES } from "@/constants"
 import { TitledCard } from "@/layouts"
 import { Pen } from "@phosphor-icons/react"
-import { apiClient } from "vgold-shared/services/api-client"
 import { type FormEvent, useEffect, useRef, useState } from "react"
 import toast from "react-hot-toast"
+import { apiClient } from "vgold-shared/services/api-client"
 
 export function TransferForm({ signaler, defaultMobile = "", customerID, stockID }) {
   const [isPayment, setIsPayment] = useState(true)

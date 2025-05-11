@@ -5,7 +5,6 @@ type ResultKeyValues = string | number | null | undefined
 export function useGetMasterInfo(input: string[]): ResultKeyValues[] {
   const res = apiClient.useFetch<{ result: Record<string, ResultKeyValues> }>(() => ({
     endpoint: "/Customer/GetMaster",
-    method: "GET",
   }))
 
   if (!res.status.isSuccess) return []

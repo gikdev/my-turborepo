@@ -1,10 +1,10 @@
 import { Btn, LabeledInput, LabeledUploadInput } from "@/components"
 import { logOut, uploadFile } from "@/helpers"
 import { FloppyDiskBack, UserCircle } from "@phosphor-icons/react"
-import { apiClient } from "vgold-shared/services/api-client"
 import Cookies from "js-cookie"
 import { toast } from "react-toastify"
 import tw from "tailwind-styled-components"
+import { apiClient } from "vgold-shared/services/api-client"
 import { Link } from "wouter"
 
 const StyledForm = tw.form`grid sm:grid-cols-2 gap-y-6 gap-x-4 items-end`

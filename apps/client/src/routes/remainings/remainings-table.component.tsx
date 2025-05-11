@@ -1,7 +1,7 @@
 import { TableFa } from "@/components"
 import { formatters } from "@/helpers"
-import { apiClient } from "vgold-shared/services/api-client"
 import type { ComponentProps } from "react"
+import { apiClient } from "vgold-shared/services/api-client"
 
 const COLUMN_DEFINITIONS: ComponentProps<typeof TableFa>["columnDefs"] = [
   { field: "stockName" as never, headerName: "نام محصول" },

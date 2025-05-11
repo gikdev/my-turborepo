@@ -1,25 +1,10 @@
-import {
-  Btn,
-  LabeledInput,
-  LabeledPriceInput,
-  LabeledSelect,
-  LabeledUploadInput,
-  Labeler,
-} from "@/components"
-import { uploadFile } from "@/helpers"
-import {
-  useFileInput,
-  useGUIDLink,
-  useInEveryPage,
-  useNormalInput,
-  usePriceInput,
-  useSearchQuery,
-} from "@/hooks"
+//@ts-check
+import { Btn, LabeledInput, LabeledSelect, Labeler } from "@/components"
+import { useGUIDLink, useInEveryPage, useNormalInput } from "@/hooks"
 import { HeadingLine } from "@/layouts"
-import { ArrowRight, PenNibStraight } from "@phosphor-icons/react"
+import { ArrowRight } from "@phosphor-icons/react"
 import { Download } from "@phosphor-icons/react/dist/ssr"
-import Cookies from "js-cookie"
-import { useCallback, useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import tw from "tailwind-styled-components"
 import { Link, useParams } from "wouter"
 import * as customerServices from "./customer.services"
@@ -83,8 +68,8 @@ export function CustomerId() {
     label: "گروه مشتری",
     required: !!groupsInt?.length,
     options:
-      defaultData.groupID && groups?.length
-        ? [groups.find(g => g.id === defaultData.groupID)]
+      defaultData?.groupID && groups?.length
+        ? [groups.find(g => g.id === defaultData?.groupID)]
         : [{ name: "-", value: null }],
   })
   const selectedGroupInt = useNormalInput({
@@ -93,8 +78,8 @@ export function CustomerId() {
     label: "گروه مشتری عددی",
     required: !!groupsInt?.length,
     options:
-      defaultData.groupIntID && groupsInt?.length
-        ? [groupsInt.find(g => g.id === defaultData.groupIntID)]
+      defaultData?.groupIntID && groupsInt?.length
+        ? [groupsInt.find(g => g.id === defaultData?.groupIntID)]
         : [{ name: "-", value: null }],
   })
   const isActive = useNormalInput({
@@ -147,6 +132,7 @@ export function CustomerId() {
   })
 
   useEffect(() => {
+    if (typeof id !== "number") return
     customerServices.$get(id, data => setDefaultData(data))
   }, [id])
 
@@ -162,6 +148,8 @@ export function CustomerId() {
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
+    if (!defaultData) return
+
     function validate(data) {
       let validated
 
@@ -194,8 +182,8 @@ export function CustomerId() {
         <LabeledInput {...allowedDevices.props} />
         <LabeledSelect {...selectedGroup.props} />
         <LabeledSelect {...selectedGroupInt.props} />
-        <LabeledDLBtn label="آیدی ملی:" guid={defaultData.melliID} />
-        <LabeledDLBtn label="آیدی کسب:" guid={defaultData.kasbsID} />
+        <LabeledDLBtn label="آیدی ملی:" guid={defaultData?.melliID} />
+        <LabeledDLBtn label="آیدی کسب:" guid={defaultData?.kasbsID} />
         <LabeledSelect {...isActive.props} />
         <LabeledSelect {...isBlocked.props} />
         <LabeledInput {...password.props} />

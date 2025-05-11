@@ -1,16 +1,16 @@
 import { Btn, LabeledInput, Labeler, PriceInput } from "@/components"
 import { MESSAGES } from "@/constants"
+import { useProfileContext } from "@/contexts/profile"
 import { useSignalRContext } from "@/contexts/signalr.context"
 import { ENUMS } from "@/enums"
 import { useModal } from "@/hooks"
 import { priceToToman } from "@/utils"
-import type { OrderFm, OrderSide, ReqOrderDto, RequestOrderMode } from "vgold-shared/gen-types"
-import { apiClient } from "vgold-shared/services/api-client"
-import Cookies from "js-cookie"
 import { type ChangeEvent, type FormEvent, useEffect, useId, useRef, useState } from "react"
 import { toast } from "react-toastify"
+import type { OrderFm, OrderSide, ReqOrderDto, RequestOrderMode } from "vgold-shared/gen-types"
+import { apiClient } from "vgold-shared/services/api-client"
 import { OrderModal, OrderModalState } from "./order-modal.component"
-import { getOrderStatusByID, requestOrder } from "./product.service"
+import { requestOrder } from "./product.service"
 
 const isRound = (num: string | number) => Number(num) === Math.floor(Number(num))
 
@@ -48,6 +48,7 @@ export function ProductForm({
   minVolume,
   maxVolume,
 }: ProductFormProps) {
+  const { profile } = useProfileContext()
   const { connectionRef } = useSignalRContext()
   const [weight, setWeight] = useState("")
   const [tradeValue, setTradeValue] = useState("")
@@ -152,7 +153,7 @@ export function ProductForm({
     }
 
     requestOrder(data, orderData => {
-      connectionRef.current.invoke("RequestOrder", Cookies.get("ttkk"), orderData.id)
+      connectionRef.current.invoke("RequestOrder", profile?.ttkk, orderData.id)
       connectionRef.current.on("Decided", onDecided)
 
       function onDecided(isAccepted: boolean, orderID: number) {
@@ -178,7 +179,7 @@ export function ProductForm({
             const isAccepted = data?.orderStatus === ENUMS.ORDER_STATUS.ACCEPTED
             const isRejected = data?.orderStatus === ENUMS.ORDER_STATUS.REJECTED
 
-            connectionRef.current.invoke("UpdateOrder", Cookies.get("ttkk"), data.id)
+            connectionRef.current.invoke("UpdateOrder", profile?.ttkk, data.id)
 
             if (isAccepted) setModalState(OrderModalState.Agreed)
             else if (isRejected) setModalState(OrderModalState.Disagreed)

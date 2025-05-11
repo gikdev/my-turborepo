@@ -1,7 +1,7 @@
 import { MESSAGES } from "@/constants"
+import { toast } from "react-toastify"
 import type { OrderFc, ReqOrderDto } from "vgold-shared/gen-types"
 import { apiClient } from "vgold-shared/services/api-client"
-import { toast } from "react-toastify"
 
 export function requestOrder(data: ReqOrderDto, onSuccessCallback: (data: OrderFc) => void) {
   apiClient.fetch<OrderFc>({

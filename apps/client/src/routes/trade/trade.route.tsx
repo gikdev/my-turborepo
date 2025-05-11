@@ -4,11 +4,11 @@ import { useSignalRContext } from "@/contexts/signalr.context"
 import { HeadingLine } from "@/layouts"
 import { useGetMasterInfo } from "@/services"
 import { ArrowClockwise } from "@phosphor-icons/react"
-import type { StockDto, StockStatus } from "vgold-shared/gen-types"
-import { apiClient } from "vgold-shared/services/api-client"
 import Markdown from "markdown-to-jsx"
 import { useEffect } from "react"
 import tw from "tailwind-styled-components"
+import type { StockDto, StockStatus } from "vgold-shared/gen-types"
+import { apiClient } from "vgold-shared/services/api-client"
 import { ProductCard } from "./product-card.component"
 
 const GridContainer = tw.div`flex flex-wrap gap-1 sm:gap-4 justify-center items-start`
@@ -25,8 +25,7 @@ export function Trade() {
     if (!res.data) return
     connectionRef.current.on("ReceivePriceUpdate", handlePriceChange)
 
-    const cleanup = () => connectionRef.current.off("ReceivePriceUpdate", handlePriceChange)
-    return cleanup
+    return () => void connectionRef.current.off("ReceivePriceUpdate")
   }, [res.data])
 
   function handlePriceChange(

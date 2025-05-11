@@ -1,9 +1,9 @@
 import { SelectOneTable } from "@/components"
 import { cellRenderers } from "@/helpers"
 import { useListen } from "@/hooks"
+import type { ComponentProps } from "react"
 import type { PortfolioDto } from "vgold-shared/gen-types"
 import { apiClient } from "vgold-shared/services/api-client"
-import type { ComponentProps } from "react"
 
 const columnDefs: ComponentProps<typeof SelectOneTable>["columnDefs"] = [
   { field: "stockName" as never, headerName: "نام محصول", checkboxSelection: true },

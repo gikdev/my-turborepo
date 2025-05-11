@@ -1,8 +1,8 @@
-import type { LoginModel, MasterLoginModel } from "vgold-shared/gen-types"
-import { apiClient } from "vgold-shared/services/api-client"
 import Cookies from "js-cookie"
 import { sha512 } from "js-sha512"
 import { toast } from "react-toastify"
+import type { LoginModel, MasterLoginModel } from "vgold-shared/gen-types"
+import { apiClient } from "vgold-shared/services/api-client"
 
 export function loginAdmin(data: LoginModel, endLoading: () => void) {
   const dataToSend = JSON.stringify({

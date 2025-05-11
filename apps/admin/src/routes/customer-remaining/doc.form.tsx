@@ -2,10 +2,10 @@ import { Btn, LabeledInput, LabeledUploadInput, Switch } from "@/components"
 import { uploadFile } from "@/helpers"
 import { TitledCard } from "@/layouts"
 import { Pen } from "@phosphor-icons/react"
-import type { ReqAcceptDocMasterDto } from "vgold-shared/gen-types"
-import { apiClient } from "vgold-shared/services/api-client"
 import { type FormEvent, useEffect, useRef, useState } from "react"
 import toast from "react-hot-toast"
+import type { ReqAcceptDocMasterDto } from "vgold-shared/gen-types"
+import { apiClient } from "vgold-shared/services/api-client"
 
 export function DocForm({ signaler, customerID }) {
   const docTitleRef = useRef(null)

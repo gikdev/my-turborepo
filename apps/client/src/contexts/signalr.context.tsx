@@ -1,7 +1,6 @@
 import { apiHelper, logOut } from "@/helpers"
 import * as signalR from "@microsoft/signalr"
 import { captureException } from "@sentry/react"
-import Cookies from "js-cookie"
 import {
   type RefObject,
   createContext,
@@ -12,6 +11,7 @@ import {
   useState,
 } from "react"
 import { toast } from "react-toastify"
+import { useProfileContext } from "./profile"
 
 export type ConnectionState = "unknown" | "disconnected" | "connected" | "loading"
 
@@ -38,6 +38,7 @@ const OK_CONNECTION_STATES: ConnectionState[] = ["connected", "loading"]
 export function SignalRProvider({ children }) {
   const [connectionState, setConnectionState] = useState<ConnectionState>("unknown")
   const connectionRef = useRef<signalR.HubConnection | null>(null)
+  const { profile } = useProfileContext()
 
   const handleConnectionFailed = useCallback(() => setConnectionState("disconnected"), [])
   const handleClose = useCallback(() => setConnectionState("disconnected"), [])
@@ -45,7 +46,7 @@ export function SignalRProvider({ children }) {
   const handleStarted = useCallback(() => {
     setConnectionState("connected")
     // Initialize connection with token after successful connection
-    const token = Cookies.get("ttkk")
+    const token = profile?.ttkk
 
     if (token && connectionRef.current) {
       connectionRef.current.invoke("InitializeConnection", token).catch(err => {
@@ -53,7 +54,7 @@ export function SignalRProvider({ children }) {
         console.error("Error initializing connection:", err)
       })
     }
-  }, [])
+  }, [profile?.ttkk])
 
   useEffect(() => {
     const newConnection = new signalR.HubConnectionBuilder()
@@ -65,7 +66,7 @@ export function SignalRProvider({ children }) {
 
     newConnection.on("UserNotFound", () => {
       toast.error("کاربر پیدا نشد. لطفا دوباره وارد شوید")
-      const token = Cookies.get("ttkk")
+      const token = profile?.ttkk
       if (token) setTimeout(() => logOut(), 2 * 1000)
     })
 
@@ -86,7 +87,7 @@ export function SignalRProvider({ children }) {
         console.error("Failed to stop the connection...")
       })
     }
-  }, [handleClose, handleConnectionFailed, handleReconnected, handleStarted])
+  }, [handleClose, handleConnectionFailed, handleReconnected, handleStarted, profile?.ttkk])
 
   useEffect(() => {
     const interval = setInterval(() => {

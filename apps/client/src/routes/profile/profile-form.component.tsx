@@ -1,11 +1,12 @@
 import { Btn, LabeledInput, LabeledTextarea } from "@/components"
+import { useProfileContext } from "@/contexts/profile"
 import { logOut, uploadFile } from "@/helpers"
 import { FloppyDiskBack, UserCircle } from "@phosphor-icons/react"
-import { apiClient } from "vgold-shared/services/api-client"
-import Cookies from "js-cookie"
 import { useForm } from "react-hook-form"
 import { toast } from "react-toastify"
 import tw from "tailwind-styled-components"
+import type { CustomerLoginModel } from "vgold-shared/gen-types"
+import { apiClient } from "vgold-shared/services/api-client"
 import { Link } from "wouter"
 import { GUIDLink } from "./guid-link.component"
 import { LabeledUploadInput } from "./labeled-upload-input.component"
@@ -23,9 +24,6 @@ function objToKeyVal(obj: ProfileFormValues) {
 
 function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1)
-}
-function loweralize(str: string) {
-  return str.charAt(0).toLowerCase() + str.slice(1)
 }
 
 function handleLogOut() {
@@ -46,14 +44,16 @@ interface ProfileFormValues {
 }
 
 export function ProfileForm() {
+  const { profile, setProfile } = useProfileContext()
+
   const { register, handleSubmit } = useForm<ProfileFormValues>({
     defaultValues: {
-      displayName: Cookies.get("displayName") ?? "",
-      city: Cookies.get("city") ?? "",
-      codeMelli: Cookies.get("codeMelli") ?? "",
-      kasbsID: Cookies.get("kasbsID") ?? "",
-      melliID: Cookies.get("melliID") ?? "",
-      address: Cookies.get("address") ?? "",
+      displayName: profile?.displayName ?? "",
+      city: profile?.city ?? "",
+      codeMelli: profile?.codeMelli ?? "",
+      kasbsID: profile?.kasbsID ?? "",
+      melliID: profile?.melliID ?? "",
+      address: profile?.address ?? "",
     },
   })
 
@@ -61,12 +61,18 @@ export function ProfileForm() {
     if (data.kasbsID instanceof FileList) {
       const kasbsIDRes = await uploadFile(data.kasbsID[0], true)
       const kasbsID = kasbsIDRes ?? data.kasbsID
-      Cookies.set("kasbsID", String(kasbsID))
+      setProfile(p => ({
+        ...p,
+        kasbsID: String(kasbsID),
+      }))
     }
     if (data.melliID instanceof FileList) {
       const melliIDRes = await uploadFile(data.melliID[0], true)
       const melliID = melliIDRes ?? data.melliID
-      Cookies.set("melliID", String(melliID))
+      setProfile(p => ({
+        ...p,
+        melliID: String(melliID),
+      }))
     }
 
     // biome-ignore lint/performance/noDelete: <explanation>
@@ -85,12 +91,18 @@ export function ProfileForm() {
       return
     }
 
+    const fixedData: CustomerLoginModel = {
+      ...data,
+      kasbsID: typeof data.kasbsID === "string" ? data.kasbsID : String(data.kasbsID),
+      melliID: typeof data.melliID === "string" ? data.melliID : String(data.melliID),
+    }
+
     apiClient.fetch({
       endpoint: "/Customer/UpdateF",
       method: "POST",
       body: JSON.stringify(dataToSend),
       onSuccess() {
-        dataToSend.dataVal.map(item => Cookies.set(loweralize(item.key), String(item.val)))
+        setProfile(p => ({ ...p, ...fixedData }))
         toast.success("با موفقیت انجام شد")
       },
     })
@@ -99,18 +111,18 @@ export function ProfileForm() {
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
       <LabeledInput {...register("displayName")} dir="rtl" type="text" label="نام:" />
-      <LabeledInput defaultValue={Cookies.get("mobile")} disabled label="موبایل:" />
+      <LabeledInput defaultValue={profile?.mobile} disabled label="موبایل:" />
       <LabeledInput {...register("city")} dir="rtl" type="text" label="شهر:" />
       <LabeledInput {...register("codeMelli")} type="number" label="کدملی:" />
       <LabeledUploadInput
         {...register("kasbsID")}
         labelText="آیدی کسب:"
-        secondLabel={<GUIDLink guid={Cookies.get("kasbsID")} />}
+        secondLabel={<GUIDLink guid={profile?.kasbsID} />}
       />
       <LabeledUploadInput
         {...register("melliID")}
         labelText="آیدی ملی:"
-        secondLabel={<GUIDLink guid={Cookies.get("melliID")} />}
+        secondLabel={<GUIDLink guid={profile?.melliID} />}
       />
       <LabeledTextarea {...register("address")} dir="rtl" label="آدرس:" />
 

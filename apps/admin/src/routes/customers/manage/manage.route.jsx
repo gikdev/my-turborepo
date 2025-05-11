@@ -65,14 +65,14 @@ export function Manage() {
     label: "گروه مشتری گرمی",
     required: !!groups?.length,
     options: [...groups],
-    defaultValue: defaultData.groupID,
+    defaultValue: defaultData?.groupID,
   })
   const selectedGroupInt = useNormalInput({
     name: "selectedGroupInt",
     label: "گروه مشتری عددی",
     required: !!groupsInt?.length,
     options: [...groupsInt],
-    defaultValue: defaultData.groupIntID,
+    defaultValue: defaultData?.groupIntID,
   })
   const melliFile = useFileInput({
     name: "melliFile",
@@ -142,7 +142,7 @@ export function Manage() {
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
-    if (!isEditMode) return
+    if (!isEditMode || !defaultData) return
 
     // if Nan -> 0, if undefined -> null, otherwise data...
     function validate(data) {
@@ -172,13 +172,6 @@ export function Manage() {
 
     let melliID = null
     let kasbsID = null
-
-    console.log({
-      gv: selectedGroup.props.value,
-      gd: selectedGroup.props.defaultValue,
-      iv: selectedGroupInt.props.value,
-      id: selectedGroupInt.props.defaultValue,
-    })
 
     if (!["string", "number"].includes(typeof selectedGroup.props.value))
       if (!["string", "number"].includes(typeof selectedGroup.props.defaultValue))
@@ -237,8 +230,8 @@ export function Manage() {
         <LabeledInput {...displayName.props} />
         <LabeledInput {...mobile.props} />
         <LabeledInput {...codeMelli.props} />
-        <LabeledInput {...address.props} />
         <LabeledInput {...city.props} />
+        <LabeledInput {...address.props} />
         <LabeledInput {...allowedDevices.props} />
         {!!groups?.length && <LabeledSelect {...selectedGroup.props} />}
         {!!groupsInt?.length && <LabeledSelect {...selectedGroupInt.props} />}
@@ -248,6 +241,7 @@ export function Manage() {
         <LabeledSelect {...isBlocked.props} />
         <LabeledInput {...password.props} />
         <LabeledInput {...passwordRepeat.props} />
+
         <Btn
           isLoading={isLoading}
           disabled={isLoading}

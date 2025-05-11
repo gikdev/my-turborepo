@@ -1,3 +1,4 @@
+import { toast } from "react-toastify"
 import type {
   AddCustomerDto,
   CustomerDto,
@@ -7,7 +8,6 @@ import type {
   UpdateCustomerForMasterDto,
 } from "vgold-shared/gen-types"
 import { apiClient } from "vgold-shared/services/api-client"
-import { toast } from "react-toastify"
 
 export function $delete(data: Gidto, cb: () => void) {
   apiClient.fetch({
@@ -45,11 +45,11 @@ export function $new(data: AddCustomerDto, cb: () => void) {
   })
 }
 
-export function $get(id: number, cb: (customer: CustomerDto) => void) {
+export function $get(id: number | string, cb: (customer: CustomerDto) => void) {
   apiClient.fetch<CustomerDto[]>({
     endpoint: "/Master/GetCustomers",
     onSuccess(customers) {
-      const customer = customers.find(customer => customer.id === id)
+      const customer = customers.find(customer => customer.id === Number(id))
       cb?.(customer)
     },
   })
@@ -66,7 +66,7 @@ export function useGetAllGroups() {
 
 export function useGetAllGroupsInt() {
   const res = apiClient.useFetch<CustomerGroupIntDto[]>(() => ({
-    endpoint: "/TyCustomerGroupsIntInts",
+    endpoint: "/TyCustomerGroupIntInts",
     defaultValue: [],
   }))
 

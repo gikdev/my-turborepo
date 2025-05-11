@@ -200,7 +200,11 @@ export function useWithSound(audioSource: string) {
   }, [audioSource])
 
   const play = useCallback(() => {
-    soundRef.current.play()
+    try {
+      soundRef.current.play()
+    } catch (err) {
+      captureException(err)
+    }
   }, [])
 
   const pause = useCallback(() => {

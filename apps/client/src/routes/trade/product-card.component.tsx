@@ -1,12 +1,12 @@
 import { Heading, Hr } from "@/components"
 import { useAdminContext } from "@/contexts"
+import { useProfileContext } from "@/contexts/profile"
 import { useSignalRContext } from "@/contexts/signalr.context"
 import { ENUMS } from "@/enums"
 import { PersianDate, getTimeFa } from "@/utils"
-import type { StockDto } from "vgold-shared/gen-types"
-import Cookies from "js-cookie"
 import { useEffect, useState } from "react"
 import tw from "tailwind-styled-components"
+import type { StockDto } from "vgold-shared/gen-types"
 import { Pricy } from "./pricy.component"
 import { ProductForm } from "./product-form.component"
 
@@ -37,6 +37,7 @@ export function ProductCard({
   maxVoume,
   supply,
 }: ProductCardProps) {
+  const { profile } = useProfileContext()
   // productData: { id, name, price, diffBuyPrice, diffSellPrice, dateUpdate, decimalNumber, status, mode, unitPriceRatio, maxAutoMin }
   const [selectedMode, setSelectedMode] = useState("")
   const { isOnline } = useAdminContext()
@@ -48,10 +49,10 @@ export function ProductCard({
   const updateDate = lastUpdated.toLocaleDateString()
   const updateTime = getTimeFa(lastUpdated.toDateString())
 
-  const groupDiffBuyPrice = Number(Cookies.get("diffBuyPrice") ?? 0)
-  const groupDiffSellPrice = Number(Cookies.get("diffSellPrice") ?? 0)
-  const groupIntDiffBuyPrice = Number(Cookies.get("diffBuyPriceInt") ?? 0)
-  const groupIntDiffSellPrice = Number(Cookies.get("diffSellPriceInt") ?? 0)
+  const groupDiffBuyPrice = Number(profile?.diffBuyPrice ?? 0)
+  const groupDiffSellPrice = Number(profile?.diffSellPrice ?? 0)
+  const groupIntDiffBuyPrice = Number(profile?.diffBuyPriceInt ?? 0)
+  const groupIntDiffSellPrice = Number(profile?.diffSellPriceInt ?? 0)
   const selectedGroupDiffBuyPrice = isGroupModeInt ? groupIntDiffBuyPrice : groupDiffBuyPrice
   const selectedGroupDiffSellPrice = isGroupModeInt ? groupIntDiffSellPrice : groupDiffSellPrice
 

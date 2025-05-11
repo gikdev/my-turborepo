@@ -15,6 +15,7 @@ import { Bounce, ToastContainer } from "react-toastify"
 import { SWRConfig } from "swr"
 import { Route, Switch } from "wouter"
 import { currentUrlName, version } from "../stuffer.config.json"
+import { ProfileProvider } from "./contexts/profile"
 import { SignalRProvider } from "./contexts/signalr.context"
 import { About } from "./routes/about/about.route"
 import { Docs } from "./routes/docs/docs.route"
@@ -65,31 +66,33 @@ root.render(
       transition={Bounce}
     />
     <SWRConfig value={{ dedupingInterval: 0 }}>
-      <SignalRProvider>
-        <Switch>
-          <Route path="/login" component={Login} />
-          <AdminProvider>
-            <UIProvider>
-              <BaseWrapper>
-                <Switch>
-                  <Route path="/" component={Trade} />
-                  <Route path="/profile" component={Profile} />
-                  <Route path="/profile/change-password" component={ChangePassword} />
-                  <Route path="/orders" component={Orders} />
-                  <Route path="/remainings" component={Remainings} />
-                  <Route path="/docs" component={Docs} />
-                  <Route path="/transfers" component={Transfers} />
-                  <Route path="/store-details" component={StoreDetails} />
-                  <Route path="/about" component={About} />
-                  <Route path="/rules" component={Rules} />
-                  <Route path="/test" component={Test} />
-                  <Route path="*"> ۴۰۴ پیدا نشد </Route>
-                </Switch>
-              </BaseWrapper>
-            </UIProvider>
-          </AdminProvider>
-        </Switch>
-      </SignalRProvider>
+      <Switch>
+        <Route path="/login" component={Login} />
+        <ProfileProvider>
+          <SignalRProvider>
+            <AdminProvider>
+              <UIProvider>
+                <BaseWrapper>
+                  <Switch>
+                    <Route path="/" component={Trade} />
+                    <Route path="/profile" component={Profile} />
+                    <Route path="/profile/change-password" component={ChangePassword} />
+                    <Route path="/orders" component={Orders} />
+                    <Route path="/remainings" component={Remainings} />
+                    <Route path="/docs" component={Docs} />
+                    <Route path="/transfers" component={Transfers} />
+                    <Route path="/store-details" component={StoreDetails} />
+                    <Route path="/about" component={About} />
+                    <Route path="/rules" component={Rules} />
+                    <Route path="/test" component={Test} />
+                    <Route path="*"> ۴۰۴ پیدا نشد </Route>
+                  </Switch>
+                </BaseWrapper>
+              </UIProvider>
+            </AdminProvider>
+          </SignalRProvider>
+        </ProfileProvider>
+      </Switch>
     </SWRConfig>
     <VersionTag appType="client" version={versionStr} />
   </React.StrictMode>,

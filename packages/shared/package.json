@@ -2,6 +2,7 @@
   "name": "vgold-shared",
   "type": "module",
   "exports": {
+    "./gen-types": "./src/client/types.gen.ts",
     "./client": "./src/client/index.ts",
     "./components": "./src/components/index.ts",
     "./contexts": "./src/contexts/index.ts",

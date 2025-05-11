@@ -3,9 +3,9 @@ import { formatters } from "@/helpers"
 import { useDateFilter } from "@/hooks"
 import { toISOStr } from "@/utils"
 import { ArrowCounterClockwise, Check, X } from "@phosphor-icons/react"
+import type { ComponentProps } from "react"
 import type { PageDto, TransferDto } from "vgold-shared/gen-types"
 import { apiClient } from "vgold-shared/services/api-client"
-import type { ComponentProps } from "react"
 import * as transfersServices from "./transfers.services.js"
 
 export function TransfersTable() {

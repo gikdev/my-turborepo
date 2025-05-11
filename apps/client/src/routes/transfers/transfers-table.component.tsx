@@ -3,9 +3,9 @@ import { formatters } from "@/helpers"
 import { useDateFilter } from "@/hooks"
 import { TitledCard } from "@/layouts"
 import { toISOStr } from "@/utils"
+import { type ComponentProps, useEffect } from "react"
 import type { TransferDto } from "vgold-shared/gen-types"
 import { apiClient } from "vgold-shared/services/api-client"
-import { type ComponentProps, useEffect } from "react"
 
 const COLUMN_DEFINITIONS: ComponentProps<typeof TableFa>["columnDefs"] = [
   { field: "id" as never, headerName: "آیدی", valueFormatter: formatters.persianNumber },

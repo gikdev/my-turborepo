@@ -1,9 +1,9 @@
+import { toast } from "react-toastify"
 import type {
   StockPriceSourceAddRequest,
   StockPriceSourceEditRequest,
 } from "vgold-shared/gen-types"
 import { apiClient } from "vgold-shared/services/api-client"
-import { toast } from "react-toastify"
 
 export function removePriceSource(id: number, cb: () => void) {
   apiClient.fetch({

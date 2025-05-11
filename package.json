@@ -3,9 +3,6 @@
   "private": true,
   "scripts": {
     "turbo": "turbo",
-    "lint": "biome lint --write ./apps/*/src/ ./packages/*/src/",
-    "format": "biome format --write ./apps/*/src/ ./packages/*/src/",
-    "format:fix-unsafe": "biome format --fix --unsafe ./apps/*/src/ ./packages/*/src/",
     "check": "biome check --write ./apps/*/src/ ./packages/*/src/",
     "build": "turbo run build",
     "dev": "turbo run dev"

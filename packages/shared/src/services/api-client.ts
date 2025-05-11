@@ -323,6 +323,7 @@ function useAPIClientFetch<OutputData, RawData = unknown>(
         try {
           optionsRef.current.onSuccess?.(data)
         } catch (err) {
+          captureException(err)
           console.error("onSuccess ERROR!!!", err)
           optionsRef.current.onError?.(ERROR_MSGS.GENERAL)
         }

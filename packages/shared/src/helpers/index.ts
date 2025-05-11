@@ -6,7 +6,7 @@ export * from "./misc.helpers"
 export * from "./ui.helpers"
 export * from "./api.helpers"
 export * from "./api-config.helper"
-export * from "./dev.helpers.ts"
+export * from "./dev.helpers"
 
 export const customToaster = {
   success(msg = "با موفقیت انجام شد") {

@@ -3,10 +3,10 @@ import { apiEndpoints, apiHelper, formatters, logOut, uploadFile } from "@/helpe
 import { TitledCard } from "@/layouts"
 import { toISOStr } from "@/utils"
 import { PenNib } from "@phosphor-icons/react"
-import { ERROR_MSGS, apiClient } from "vgold-shared/services/api-client"
 import { captureException } from "@sentry/react"
 import { useCallback, useRef, useState } from "react"
 import { toast } from "react-toastify"
+import { ERROR_MSGS, apiClient } from "vgold-shared/services/api-client"
 import { LabeledUploadInput } from "../profile/labeled-upload-input.component" // TODO
 
 const COLUMN_DEFS = [
