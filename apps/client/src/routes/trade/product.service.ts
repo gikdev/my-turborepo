@@ -14,5 +14,3 @@ export function requestOrder(data: ReqOrderDto, onSuccessCallback: (data: OrderF
     },
   })
 }
-
-export function getOrderStatusByID(id: number, onError = () => {}) {}

@@ -3,6 +3,7 @@ import Cookies from "js-cookie"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { toast } from "react-toastify"
 import { currentUrlName, urls } from "../../stuffer.config.json"
+// @ts-ignore
 import { logOut } from "../helpers"
 import {
   comment,
@@ -115,7 +116,8 @@ async function apiClientFetch<OutputData, RawData = unknown>({
   returnRes = false,
   returnData = false,
   isLoginForm = false,
-}: APIClientFetchOptions<OutputData, RawData>) {
+  // biome-ignore lint/suspicious/noConfusingVoidType: <explanation>
+}: APIClientFetchOptions<OutputData, RawData>): Promise<OutputData | Response | void> {
   // URL
   let url = `${BASE_URL}/api${endpoint}`
 

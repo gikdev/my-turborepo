@@ -1,4 +1,3 @@
-//@ts-check
 import { Btn, LabeledInput, LabeledSelect, Labeler } from "@/components"
 import { useGUIDLink, useInEveryPage, useNormalInput } from "@/hooks"
 import { HeadingLine } from "@/layouts"
@@ -20,7 +19,6 @@ export function CustomerId() {
   const groups = customerServices.useGetAllGroups()
   const groupsInt = customerServices.useGetAllGroupsInt()
   const [defaultData, setDefaultData] = useState({})
-  const [isLoading, setLoading] = useState(false)
   const { id } = useParams()
 
   const displayName = useNormalInput({
@@ -190,9 +188,9 @@ export function CustomerId() {
         <LabeledInput {...passwordRepeat.props} />
 
         <Btn
-          isLoading={isLoading}
-          disabled={isLoading}
-          as={isLoading ? "button" : Link}
+          // isLoading={isLoading}
+          // disabled={isLoading}
+          // as={isLoading ? "button" : Link}
           href="/customers"
           icon={ArrowRight}
           className="w-full"

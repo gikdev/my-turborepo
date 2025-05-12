@@ -5,6 +5,7 @@ import { formatters } from "@/helpers"
 import { useInEveryPage } from "@/hooks"
 import { HeadingLine } from "@/layouts"
 import { ArrowCounterClockwise } from "@phosphor-icons/react"
+import { captureException } from "@sentry/react"
 import { type ComponentProps, useEffect, useState } from "react"
 import { toast } from "react-toastify"
 
@@ -48,7 +49,10 @@ export function OnlineUsers() {
     connection
       .invoke("GetConnectedUsers")
       .then(users => setOnlineUsers(users))
-      .catch(e => toast.error("یه مشکلی پیش آمده (E-AXE6785)"))
+      .catch(err => {
+        captureException(err)
+        toast.error("یه مشکلی پیش آمده (E-AXE6785)")
+      })
   }
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
@@ -65,6 +69,8 @@ export function OnlineUsers() {
 
       return () => connectionRef.current?.off("OnlineCount")
     }
+
+    return undefined
   }, [connectionState])
 
   return (

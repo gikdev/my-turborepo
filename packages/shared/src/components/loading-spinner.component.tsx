@@ -1,4 +1,5 @@
 import { type IconProps, SpinnerGap } from "@phosphor-icons/react"
+// @ts-ignore
 import { cn } from "../helpers"
 
 interface LoadingSpinnerProps extends IconProps {

@@ -8,8 +8,8 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "noEmit": true,
-    "allowJS": true,
-    "checkJS": false,
+    "allowJs": true,
+    "checkJs": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true

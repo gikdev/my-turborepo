@@ -42,7 +42,7 @@ export function AdminProvider({ children }) {
   }, [adminStatusData])
 
   useEffect(() => {
-    if (!connectionRef.current) return
+    if (!connectionRef.current) return undefined
 
     connectionRef.current.on("MasterStatusChange", (incomingMasterId, _isOnline) => {
       const masterId = profile?.masterID

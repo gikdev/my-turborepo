@@ -10,7 +10,6 @@ import {
   Cube,
   HouseLine,
   Info,
-  Mailbox,
   Receipt,
   Scales,
   Scroll,

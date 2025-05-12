@@ -1,28 +1,28 @@
 import { Btn, LabeledInput, SelectOneTable } from "@/components"
-import { apiEndpoints, apiHelper, formatters, logOut, uploadFile } from "@/helpers"
+import { formatters, logOut, uploadFile } from "@/helpers"
 import { TitledCard } from "@/layouts"
 import { toISOStr } from "@/utils"
 import { PenNib } from "@phosphor-icons/react"
 import { captureException } from "@sentry/react"
-import { useCallback, useRef, useState } from "react"
+import { type ComponentProps, useCallback, useRef, useState } from "react"
 import { toast } from "react-toastify"
 import { ERROR_MSGS, apiClient } from "vgold-shared/services/api-client"
 import { LabeledUploadInput } from "../profile/labeled-upload-input.component" // TODO
 
-const COLUMN_DEFS = [
+const COLUMN_DEFS: ComponentProps<typeof SelectOneTable>['columnDefs'] = [
   {
-    field: "id",
+    field: "id" as never,
     headerName: "آیدی",
     valueFormatter: formatters.persianNumber,
     checkboxSelection: true,
   },
-  { field: "stockName", headerName: "نام محصول" },
-  { field: "price", headerName: "قیمت", valueFormatter: formatters.rial },
-  { field: "volume", headerName: "مقدار", valueFormatter: formatters.persianNumber },
-  { field: "value", headerName: "ارزش معامله (ریال)", valueFormatter: formatters.persianComma },
-  { field: "orderStatus", headerName: "وضعیت سفارش", valueFormatter: formatters.orderStatus },
-  { field: "side", headerName: "نوع سفارش", valueFormatter: formatters.orderSide },
-  { field: "time", headerName: "آخرین به روز رسانی", valueFormatter: formatters.date },
+  { field: "stockName" as never, headerName: "نام محصول" },
+  { field: "price" as never, headerName: "قیمت", valueFormatter: formatters.rial },
+  { field: "volume" as never, headerName: "مقدار", valueFormatter: formatters.persianNumber },
+  { field: "value" as never, headerName: "ارزش معامله (ریال)", valueFormatter: formatters.persianComma },
+  { field: "orderStatus" as never, headerName: "وضعیت سفارش", valueFormatter: formatters.orderStatus },
+  { field: "side" as never, headerName: "نوع سفارش", valueFormatter: formatters.orderSide },
+  { field: "time" as never, headerName: "آخرین به روز رسانی", valueFormatter: formatters.date },
 ]
 
 const dataToSend = JSON.stringify({
@@ -81,7 +81,7 @@ export function NewDocForm({ signaler }) {
           captureException(errorMsg)
           toast.error(errorMsg)
           console.error(errorMsg)
-          return
+          return undefined
         }
         return res
       })

@@ -2,22 +2,22 @@ import { Btn, LabeledInput, SelectOneTable } from "@/components"
 import { formatters } from "@/helpers"
 import { TitledCard } from "@/layouts"
 import { PenNib } from "@phosphor-icons/react"
-import { type FormEvent, useCallback, useRef, useState } from "react"
+import { type ComponentProps, type FormEvent, useCallback, useRef, useState } from "react"
 import { toast } from "react-toastify"
 import { apiClient } from "vgold-shared/services/api-client"
 
-const COLUMN_DEFS = [
-  { field: "name", headerName: "نام محصول", checkboxSelection: true },
-  { field: "description", headerName: "توضیحات" },
-  { field: "price", headerName: "قیمت", valueFormatter: formatters.rial },
-  { field: "status", headerName: "وضعیت", valueFormatter: formatters.productStatus },
-  { field: "supply", headerName: "مقدار مانده", valueFormatter: formatters.persianNumber },
+const COLUMN_DEFS: ComponentProps<typeof SelectOneTable>["columnDefs"] = [
+  { field: "name" as never, headerName: "نام محصول", checkboxSelection: true },
+  { field: "description" as never, headerName: "توضیحات" },
+  { field: "price" as never, headerName: "قیمت", valueFormatter: formatters.rial },
+  { field: "status" as never, headerName: "وضعیت", valueFormatter: formatters.productStatus },
+  { field: "supply" as never, headerName: "مقدار مانده", valueFormatter: formatters.persianNumber },
 ]
 
 export function NewTransferForm({ signaler }) {
   const [selection, setSelection] = useStatyRef([])
   const [isLoading, setLoading] = useState(false)
-  const transfersRes = apiClient.useFetch(() => ({
+  const transfersRes = apiClient.useFetch<unknown[]>(() => ({
     endpoint: "/TyStocks/ForCustommer",
   }))
 

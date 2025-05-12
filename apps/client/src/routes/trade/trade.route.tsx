@@ -22,7 +22,7 @@ export function Trade() {
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
-    if (!res.data) return
+    if (!res.data) return undefined
     connectionRef.current.on("ReceivePriceUpdate", handlePriceChange)
 
     return () => void connectionRef.current.off("ReceivePriceUpdate")

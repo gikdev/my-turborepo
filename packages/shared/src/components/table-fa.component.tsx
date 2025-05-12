@@ -1,6 +1,7 @@
 import { AgGridReact } from "ag-grid-react"
 import { type ComponentProps, forwardRef } from "react"
 import { AG_GRID_LOCALE_IR } from "../constants"
+// @ts-ignore
 import { cn } from "../helpers"
 
 const DEFAULT_COLUMN_DEFENITION = {

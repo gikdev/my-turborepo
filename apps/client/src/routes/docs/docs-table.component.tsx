@@ -3,7 +3,7 @@ import { cellRenderers, formatters } from "@/helpers"
 import { useDateFilter } from "@/hooks"
 import { TitledCard } from "@/layouts"
 import { toISOStr } from "@/utils"
-import { type ComponentProps, useEffect, useState } from "react"
+import { type ComponentProps, useEffect } from "react"
 import { apiClient } from "vgold-shared/services/api-client"
 
 const COLUMN_DEFINITIONS: ComponentProps<typeof TableFa>["columnDefs"] = [

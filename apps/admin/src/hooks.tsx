@@ -21,8 +21,8 @@ function useNotifyOrders() {
 
   useEffect(() => {
     const connection = connectionRef.current
-    if (!connection) return
-    if (connectionState !== "connected") return
+    if (!connection) return undefined
+    if (connectionState !== "connected") return undefined
 
     connection.on("ReceiveOrder2", showNewOrderNotification)
     connection.on("Decided", (_isAccepted: unknown, orderId: number) => {

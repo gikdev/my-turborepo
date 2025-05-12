@@ -67,7 +67,7 @@ export function OrdersTable() {
   }))
 
   useEffect(() => {
-    if (!connectionRef.current) return
+    if (!connectionRef.current) return undefined
 
     connectionRef.current.on("ReceiveOrder2", () => res.reload())
     connectionRef.current.on("UpdateCOrder", () => res.reload())

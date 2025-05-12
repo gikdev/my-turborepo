@@ -11,6 +11,6 @@
     "prod": "https://tapi.vahedigold.ir",
     "dep": "https://dag.vahedigold.ir"
   },
-  "currentUrlName": "dep",
+  "currentUrlName": "prod",
   "packageManager": "bun"
 }
